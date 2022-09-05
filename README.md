@@ -1,2 +1,2 @@
 # QuedaLivros
- Venda e leuira de livros
+ Venda e leitura de livros Online
