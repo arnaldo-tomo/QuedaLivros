@@ -203,7 +203,7 @@
                                                             class="list-inline p-0 m-0  d-flex align-items-center">
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="storage{{ $dado->autorPerfil }}"
+                                                                    <img src="{{ asset('images/book-dec/01.jpg') }}"
                                                                         class="img-fluid rounded w-100"
                                                                         alt="">
                                                                 </a>
@@ -299,11 +299,9 @@
                                     <div class="col-md-6">
                                         <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
                                             <div class="iq-card-body p-0">
-                                                <h3 class="mb-3">A Casey Christi night books in the raza Dakota Krout
-                                                </h3>
+                                                <h3 class="mb-3">{{ $dado->livroNome }}</h3>
                                                 <div class="price d-flex align-items-center font-weight-500 mb-2">
-                                                    <span class="font-size-20 pr-2 old-price">$99</span>
-                                                    <span class="font-size-24 text-dark">$48</span>
+                                                    <span class="font-size-24 text-dark">{{ $dado->tipo }}</span>
                                                 </div>
                                                 <div class="mb-3 d-block">
                                                     <span class="font-size-20 text-warning">
@@ -314,30 +312,24 @@
                                                         <i class="fa fa-star"></i>
                                                     </span>
                                                 </div>
-                                                <span class="text-dark mb-4 pb-4 iq-border-bottom d-block">Monterhing
-                                                    in the
-                                                    best book testem ipsum is simply dtest in find in a of the printing
-                                                    and
-                                                    typeseting industry into to end.in find in a of the printing and
-                                                    typeseting
-                                                    industry in find to make it all done into end.</span>
-                                                <div class="text-primary mb-4">Author: <span class="text-body">Jhone
-                                                        Steben</span></div>
+                                                <span
+                                                    class="text-dark mb-4 pb-4 iq-border-bottom d-block">{{ $dado->livroDescricao }}</span>
+                                                <div class="text-primary mb-4">Author: <span
+                                                        class="text-body">{{ $dado->livroAutor }}</span></div>
                                                 <div class="mb-4 d-flex align-items-center">
-                                                    <a href="#" class="btn btn-primary view-more mr-2">Add To
-                                                        Cart</a>
-                                                    <a href="book-pdf.html"
-                                                        class="btn btn-primary view-more mr-2">Read
-                                                        Sample</a>
+                                                    <a href="#" class="btn btn-primary view-more mr-2">Ler
+                                                        Depois</a>
+                                                    <a href="book-pdf.html" class="btn btn-primary view-more mr-2">Ler
+                                                        Agora</a>
                                                 </div>
                                                 <div class="mb-3">
                                                     <a href="#" class="text-body text-center"><span
                                                             class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i
-                                                                class="ri-heart-fill"></i></span><span>Add to
-                                                            Wishlist</span></a>
+                                                                class="ri-heart-fill"></i></span><span>Adcionar Como
+                                                            Favorito</span></a>
                                                 </div>
                                                 <div class="iq-social d-flex align-items-center">
-                                                    <h5 class="mr-2">Share:</h5>
+                                                    <h5 class="mr-2">Partilhar:</h5>
                                                     <ul class="list-inline d-flex p-0 mb-0 align-items-center">
                                                         <li>
                                                             <a href="#"
