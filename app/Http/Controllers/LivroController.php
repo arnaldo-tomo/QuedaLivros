@@ -18,6 +18,6 @@ class LivroController extends Controller
     public function ler($dado)
     {
         $dado = livro::findOrfail($dado);
-        return view('detalhes', compact('dado'$dado));
+        return view('detalhes', ['dado' => $dado]);
     }
 }
