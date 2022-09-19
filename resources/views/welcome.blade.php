@@ -272,15 +272,28 @@
                                                                     src="storage/{{ $dado->livroImagen }}"
                                                                     alt=""></a>
                                                             <div class="view-book">
-                                                                <a href="" class="btn btn-sm btn-white">Ler
+                                                                <a href="{{ route('ler', ['dado' => $dado]) }}"
+                                                                    class="btn btn-sm btn-white">Ler
+                                                                    Agora
                                                                 </a>
                                                             </div>
                                                         </div>
                                                         <div class="col-6">
                                                             <div class="mb-2">
-                                                                <h6 class="mb-1">{{ $dado->livroDescricao }}</h6>
+                                                                <h6 class="mb-1">{{ $dado->livroNome }}</h6>
                                                                 <p class="font-size-13 line-height mb-1">
                                                                     {{ $dado->livroAutor }}
+                                                                </p>
+                                                                <p class="font-size-13 line-height mb-1">
+                                                                    @if ($dado->tipo == 'Gratis')
+                                                                        <span class="font-size-12 text-dark">
+                                                                            <i class="fa fa-bolt"> GRATIS</i>
+                                                                        </span>
+                                                                    @endif
+                                                                    <span class="font-size-12 text-warning">
+                                                                        <i class="fa fa-bolt"> PRIMIUM</i>
+                                                                    </span>
+
                                                                 </p>
                                                                 <div class="d-block line-height">
                                                                     <span class="font-size-11 text-warning">

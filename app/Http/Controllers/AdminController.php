@@ -89,7 +89,7 @@ class AdminController extends Controller
         $livro->tipo = $request->tipo;
 
         $livro->save();
-        return redirect()->route('criarlivro')->with('status', 'criarlivro Registado');
+        return redirect()->route('livro')->with('status', 'criarlivro Registado');
     }
 
     public function categoria()
@@ -161,6 +161,8 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+
 
     public function logout()
     {

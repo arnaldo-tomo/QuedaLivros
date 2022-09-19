@@ -14,4 +14,10 @@ class LivroController extends Controller
         $livro = livro::OrderBy('created_at', 'desc')->get();
         return view('welcome', ['autor' => $autor, 'livro' => $livro]);
     }
+
+    public function ler($dado)
+    {
+        $dado = livro::findOrfail($dado);
+        return view('detalhes', compact('dado'$dado));
+    }
 }

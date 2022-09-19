@@ -35,6 +35,7 @@ Route::get('logout', [AdminController::class, 'logout'])->name('logout');
 
 
 Route::get('/', [LivroController::class, 'home'])->name('home');
+Route::get('ler/{dado}', [LivroController::class, 'ler'])->name('ler');
 
 Route::get('/livros', function () {
     return view('AdminDashboard');
