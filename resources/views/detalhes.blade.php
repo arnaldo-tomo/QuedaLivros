@@ -426,8 +426,20 @@
                                                             <i class="fa fa-star"></i>
                                                         </span>
                                                     </div>
-                                                    <a href="#" class="text-dark" tabindex="-1">ler Agora<i
-                                                            class="ri-arrow-right-s-line"></i></a>
+                                                    @if ($dado->tipo == 'Gratis')
+                                                        <span class="font-size-12 text-dark">
+                                                            <i class="fa fa-bolt"> GRATIS</i>
+                                                        </span>
+                                                    @else
+                                                        <span class="font-size-12 text-warning">
+                                                            <i class="fa fa-bolt"> PRIMIUM</i>
+                                                        </span>
+                                                    @endif
+                                                    <div>
+                                                        <a href="#" class="text-dark" tabindex="-1">ler
+                                                            Agora<i class="ri-arrow-right-s-line"></i></a>
+
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
