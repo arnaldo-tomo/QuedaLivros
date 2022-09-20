@@ -30,7 +30,7 @@
         <!-- Sidebar  -->
         <div class="iq-sidebar">
             <div class="iq-sidebar-logo d-flex justify-content-between">
-                <a href="" class="header-logo">
+                <a href="{{ route('home') }}" class="header-logo">
                     <img src="images/logo.png" class="img-fluid rounded-normal" alt="">
                     <div class="logo-title">
                         <span class="text-primary text-uppercase">Quedalivros</span>

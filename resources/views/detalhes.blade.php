@@ -30,7 +30,7 @@
         <!-- Sidebar  -->
         <div class="iq-sidebar">
             <div class="iq-sidebar-logo d-flex justify-content-between">
-                <a href="" class="header-logo">
+                <a href="{{ route('home') }}" class="header-logo">
                     <img src="{{ asset('images/logo.png') }}" class="img-fluid rounded-normal" alt="">
                     <div class="logo-title">
                         <span class="text-primary text-uppercase">Quedalivros</span>
@@ -182,146 +182,155 @@
                 </nav>
             </div>
         </div>
+
+
         <!-- TOP Nav Bar END -->
         <!-- Page Content  -->
         <div id="content-page" class="content-page">
             <div class="container-fluid">
                 <div class="row">
-
                     <div class="col-sm-12">
-                        <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                            <div class="iq-card-header d-flex justify-content-between align-items-center">
-                                <h4 class="card-title mb-0">Descricao do livro </h4>
-                                <div class="card-body">
-                                    <img src="">
-                                </div>
+                        <div class="iq-card book-detail">
+                            <div class="iq-card-body p-0">
+                                <iframe src="{{ asset('storage/' . $dado->livroPdf) }}"
+                                    style="width: 100%; height: 90vh;"></iframe>
                             </div>
-                            <div class="iq-card-body pb-0">
-                                <div class="description-contens align-items-top row">
-                                    <div class="col-md-6">
-                                        <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
-                                            <div class="iq-card-body p-0">
-                                                {{-- <div class="card-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Wrapper END -->
+    <!-- Footer -->
+    <!-- TOP Nav Bar END -->
+    <!-- Page Content  -->
+    <div id="content-page" class="content-page">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-12">
+                    <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-header d-flex justify-content-between align-items-center">
+                            <h4 class="card-title mb-0">Descricao do livro </h4>
+                            <div class="card-body">
+                                <img src="">
+                            </div>
+                        </div>
+                        <div class="iq-card-body pb-0">
+                            <div class="description-contens align-items-top row">
+                                <div class="col-md-6">
+                                    <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
+                                        <div class="iq-card-body p-0">
+                                            {{-- <div class="card-body">
                                                     <div class="card-haeder">
                                                         <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                             alt="">
                                                     </div>
                                                 </div> --}}
 
-                                                <div class="row align-items-center">
-                                                    <div class="col-3">
-                                                        <ul id="description-slider-nav"
-                                                            class="list-inline p-0 m-0  d-flex align-items-center">
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid rounded w-100"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid rounded w-100"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid rounded w-100"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid rounded w-100"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid rounded w-100"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid rounded w-100"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-9">
-                                                        <ul id="description-slider"
-                                                            class="list-inline p-0 m-0  d-flex align-items-center">
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid w-100 rounded"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid w-100 rounded"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid w-100 rounded"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid w-100 rounded"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid w-100 rounded"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
-                                                                        class="img-fluid w-100 rounded"
-                                                                        alt="">
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                            <div class="row align-items-center">
+                                                <div class="col-3">
+                                                    <ul id="description-slider-nav"
+                                                        class="list-inline p-0 m-0  d-flex align-items-center">
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid rounded w-100" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid rounded w-100" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid rounded w-100" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid rounded w-100" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid rounded w-100" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid rounded w-100" alt="">
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-9">
+                                                    <ul id="description-slider"
+                                                        class="list-inline p-0 m-0  d-flex align-items-center">
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid w-100 rounded" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid w-100 rounded" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid w-100 rounded" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid w-100 rounded" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid w-100 rounded" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);">
+                                                                <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                                    class="img-fluid w-100 rounded" alt="">
+                                                            </a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
-                                            <div class="iq-card-body p-0">
-                                                <h3 class="mb-3">{{ $dado->livroNome }}</h3>
-                                                <div class="text-primary mb-4">
-                                                    <b>Autor</b> <span class="text-body">{{ $dado->livroAutor }},
-                                                        <b class="primary">Categoria:</b>{{ $dado->livroCategoria }}
-                                                        <div class="text-primary mb-4">
-                                                        </div>
-                                                    </span>
-                                                </div>
-                                                {{-- <div class="price d-flex align-items-center font-weight-500 mb-2">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
+                                        <div class="iq-card-body p-0">
+                                            <h3 class="mb-3">{{ $dado->livroNome }}</h3>
+                                            <div class="text-primary mb-4">
+                                                <b>Autor</b> <span class="text-body">{{ $dado->livroAutor }},
+                                                    <b class="primary">Categoria:</b>{{ $dado->livroCategoria }}
+                                                    <div class="text-primary mb-4">
+                                                    </div>
+                                                </span>
+                                            </div>
+                                            {{-- <div class="price d-flex align-items-center font-weight-500 mb-2">
                                                     <span class="font-size-24 text-dark">{{ $dado->tipo }}</span>
                                                 </div> --}}
-                                                {{-- <div class="mb-3 d-block">
+                                            {{-- <div class="mb-3 d-block">
                                                     <span class="font-size-20 text-warning">
                                                         <i class="fa fa-star mr-1"></i>
                                                         <i class="fa fa-star mr-1"></i>
@@ -330,52 +339,48 @@
                                                         <i class="fa fa-star"></i>
                                                     </span>
                                                 </div> --}}
-                                                <span
-                                                    class="text-dark mb-4 pb-4 iq-border-bottom d-block">{{ $dado->livroDescricao }}</span>
-                                                <div class="text-primary mb-4">
-                                                    Publicado em: <span
-                                                        class="text-body">{{ $dado->created_at }}</span>
-                                                </div>
-                                                <div class="mb-4 d-flex align-items-center">
+                                            <span
+                                                class="text-dark mb-4 pb-4 iq-border-bottom d-block">{{ $dado->livroDescricao }}</span>
+                                            <div class="text-primary mb-4">
+                                                Publicado em: <span class="text-body">{{ $dado->created_at }}</span>
+                                            </div>
+                                            <div class="mb-4 d-flex align-items-center">
 
-                                                    <a href="#" class="btn btn-primary view-more mr-2">Ler
-                                                        Depois</a>
-                                                    <a href="book-pdf.html" class="btn btn-primary view-more mr-2">Ler
-                                                        Agora</a>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <a href="#" class="text-body text-center"><span
-                                                            class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i
-                                                                class="ri-heart-fill"></i></span><span>Adcionar Como
-                                                            Favorito</span></a>
-                                                </div>
-                                                <div class="iq-social d-flex align-items-center">
-                                                    <h5 class="mr-2">Partilhar:</h5>
-                                                    <ul class="list-inline d-flex p-0 mb-0 align-items-center">
-                                                        <li>
-                                                            <a href="#"
-                                                                class="avatar-40 rounded-circle bg-primary mr-2 facebook"><i
-                                                                    class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                class="avatar-40 rounded-circle bg-primary mr-2 twitter"><i
-                                                                    class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                class="avatar-40 rounded-circle bg-primary mr-2 youtube"><i
-                                                                    class="fa fa-youtube-play"
-                                                                    aria-hidden="true"></i></a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                class="avatar-40 rounded-circle bg-primary pinterest"><i
-                                                                    class="fa fa-pinterest-p"
-                                                                    aria-hidden="true"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                <a href="#" class="btn btn-primary view-more mr-2">Ler
+                                                    Depois</a>
+                                                <a href="book-pdf.html" class="btn btn-primary view-more mr-2">Ler
+                                                    Agora</a>
+                                            </div>
+                                            <div class="mb-3">
+                                                <a href="#" class="text-body text-center"><span
+                                                        class="avatar-30 rounded-circle bg-primary d-inline-block mr-2"><i
+                                                            class="ri-heart-fill"></i></span><span>Adcionar Como
+                                                        Favorito</span></a>
+                                            </div>
+                                            <div class="iq-social d-flex align-items-center">
+                                                <h5 class="mr-2">Partilhar:</h5>
+                                                <ul class="list-inline d-flex p-0 mb-0 align-items-center">
+                                                    <li>
+                                                        <a href="#"
+                                                            class="avatar-40 rounded-circle bg-primary mr-2 facebook"><i
+                                                                class="fa fa-facebook" aria-hidden="true"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"
+                                                            class="avatar-40 rounded-circle bg-primary mr-2 twitter"><i
+                                                                class="fa fa-twitter" aria-hidden="true"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"
+                                                            class="avatar-40 rounded-circle bg-primary mr-2 youtube"><i
+                                                                class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"
+                                                            class="avatar-40 rounded-circle bg-primary pinterest"><i
+                                                                class="fa fa-pinterest-p" aria-hidden="true"></i></a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -383,520 +388,515 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12">
+
+                </div>
+            </div>
+            <div class="col-lg-12">
 
 
-                        <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                            <div
-                                class="iq-card-header d-flex justify-content-between align-items-center position-relative">
-                                <div class="iq-header-title">
-                                    <h4 class="card-title mb-0">Livros Semelhantes</h4>
-                                </div>
-                                <div class="iq-card-header-toolbar d-flex align-items-center">
-                                    <a href="category.html" class="btn btn-sm btn-primary view-more">Ver Mas</a>
-                                </div>
-                            </div>
-                            <div class="iq-card-body single-similar-contens">
-                                <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
-                                    @foreach ($semelhante as $dado)
-                                        <li class="col-md-3">
-                                            <div class="row align-items-center">
-                                                <div class="col-5">
-                                                    <div class="position-relative image-overlap-shadow">
-                                                        <a href="javascript:void();">
-                                                            <img class="img-fluid rounded w-100"
-                                                                src="{{ asset('storage/' . $dado->livroImagen) }}"
-                                                                alt=""></a>
-                                                        <div class="view-book">
-                                                            <a href="{{ route('lerdetalhes', $dado->id) }}"
-                                                                class="btn btn-sm btn-white">Ler
-                                                                Livro</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-7 pl-0">
-                                                    <h6 class="mb-2">{{ $dado->livroNome }}</h6>
-                                                    <p class="font-size-13 line-height mb-1">
-                                                        Autor:{{ $dado->livroAutor }} </p>
-                                                    <div class="d-block">
-                                                        <span class="font-size-13 text-warning">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                    @if ($dado->tipo == 'Gratis')
-                                                        <span class="font-size-12 text-dark">
-                                                            <i class="fa fa-bolt"> GRATIS</i>
-                                                        </span>
-                                                    @else
-                                                        <span class="font-size-12 text-warning">
-                                                            <i class="fa fa-bolt"> PRIMIUM</i>
-                                                        </span>
-                                                    @endif
-                                                    <div>
-                                                        <a href="{{ route('lerdetalhes', $dado->id) }}"
-                                                            class="text-dark" tabindex="-1">ler
-                                                            Agora<i class="ri-arrow-right-s-line"></i></a>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                        <div class="iq-header-title">
+                            <h4 class="card-title mb-0">Livros Semelhantes</h4>
+                        </div>
+                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="category.html" class="btn btn-sm btn-primary view-more">Ver Mas</a>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                            <div
-                                class="iq-card-header d-flex justify-content-between align-items-center position-relative mb-0 trendy-detail">
-                                <div class="iq-header-title">
-                                    <h4 class="card-title mb-0">Livros Mais lidos</h4>
-                                </div>
-                                <div class="iq-card-header-toolbar d-flex align-items-center">
-                                    <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
-                                </div>
-                            </div>
-                            <div class="iq-card-body trendy-contens">
-                                <ul id="trendy-slider" class="list-inline p-0 mb-0 row">
-                                    <li class="col-md-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                                                <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                        src="{{ asset('images/trendy-books/01.jpg') }}"
+                    <div class="iq-card-body single-similar-contens">
+                        <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
+                            @foreach ($semelhante as $dado)
+                                <li class="col-md-3">
+                                    <div class="row align-items-center">
+                                        <div class="col-5">
+                                            <div class="position-relative image-overlap-shadow">
+                                                <a href="javascript:void();">
+                                                    <img class="img-fluid rounded w-100"
+                                                        src="{{ asset('storage/' . $dado->livroImagen) }}"
                                                         alt=""></a>
                                                 <div class="view-book">
-                                                    <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                        Book</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="mb-2">
-                                                    <h6 class="mb-1">The Word Books Day..</h6>
-                                                    <p class="font-size-13 line-height mb-1">Paul Molive</p>
-                                                    <div class="d-block">
-                                                        <span class="font-size-13 text-warning">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="price d-flex align-items-center">
-                                                    <span class="pr-1 old-price">$99</span>
-                                                    <h6><b>$89</b></h6>
-                                                </div>
-                                                <div class="iq-product-action">
-                                                    <a href="javascript:void();"><i
-                                                            class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                                    <a href="javascript:void();" class="ml-2"><i
-                                                            class="ri-heart-fill text-danger"></i></a>
+                                                    <a href="{{ route('lerdetalhes', $dado->id) }}"
+                                                        class="btn btn-sm btn-white">Ler
+                                                        Livro</a>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                                                <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                        src="{{ asset('images/trendy-books/02.jpg') }}"
-                                                        alt=""></a>
-                                                <div class="view-book">
-                                                    <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                        Book</a>
-                                                </div>
+                                        <div class="col-7 pl-0">
+                                            <h6 class="mb-2">{{ $dado->livroNome }}</h6>
+                                            <p class="font-size-13 line-height mb-1">
+                                                Autor:{{ $dado->livroAutor }} </p>
+                                            <div class="d-block">
+                                                <span class="font-size-13 text-warning">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
                                             </div>
-                                            <div class="col-7">
-                                                <div class="mb-2">
-                                                    <h6 class="mb-1">The catcher in the Rye</h6>
-                                                    <p class="font-size-13 line-height mb-1">Anna Sthesia</p>
-                                                    <div class="d-block">
-                                                        <span class="font-size-13 text-warning">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="price d-flex align-items-center">
-                                                    <span class="pr-1 old-price">$89</span>
-                                                    <h6><b>$79</b></h6>
-                                                </div>
-                                                <div class="iq-product-action">
-                                                    <a href="javascript:void();"><i
-                                                            class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                                    <a href="javascript:void();" class="ml-2"><i
-                                                            class="ri-heart-fill text-danger"></i></a>
-                                                </div>
+                                            @if ($dado->tipo == 'Gratis')
+                                                <span class="font-size-12 text-dark">
+                                                    <i class="fa fa-bolt"> GRATIS</i>
+                                                </span>
+                                            @else
+                                                <span class="font-size-12 text-warning">
+                                                    <i class="fa fa-bolt"> PRIMIUM</i>
+                                                </span>
+                                            @endif
+                                            <div>
+                                                <a href="{{ route('lerdetalhes', $dado->id) }}" class="text-dark"
+                                                    tabindex="-1">ler
+                                                    Agora<i class="ri-arrow-right-s-line"></i></a>
+
                                             </div>
                                         </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                                                <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                        src="{{ asset('images/trendy-books/03.jpg') }}"
-                                                        alt=""></a>
-                                                <div class="view-book">
-                                                    <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                        Book</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="mb-2">
-                                                    <h6 class="mb-1">Little Black Book</h6>
-                                                    <p class="font-size-13 line-height mb-1">Monty Carlo</p>
-                                                    <div class="d-block">
-                                                        <span class="font-size-13 text-warning">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="price d-flex align-items-center">
-                                                    <span class="pr-1 old-price">$100</span>
-                                                    <h6><b>$89</b></h6>
-                                                </div>
-                                                <div class="iq-product-action">
-                                                    <a href="javascript:void();"><i
-                                                            class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                                    <a href="javascript:void();" class="ml-2"><i
-                                                            class="ri-heart-fill text-danger"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                                                <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                        src="{{ asset('images/trendy-books/04.jpg') }}"
-                                                        alt=""></a>
-                                                <div class="view-book">
-                                                    <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                        Book</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="mb-2">
-                                                    <h6 class="mb-1">Take The Risk Book</h6>
-                                                    <p class="font-size-13 line-height mb-1">Smith goal</p>
-                                                    <div class="d-block">
-                                                        <span class="font-size-13 text-warning">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="price d-flex align-items-center">
-                                                    <span class="pr-1 old-price">$120</span>
-                                                    <h6><b>$99</b></h6>
-                                                </div>
-                                                <div class="iq-product-action">
-                                                    <a href="javascript:void();"><i
-                                                            class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                                    <a href="javascript:void();" class="ml-2"><i
-                                                            class="ri-heart-fill text-danger"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                                                <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                        src="{{ asset('images/trendy-books/05.jpg') }}"
-                                                        alt=""></a>
-                                                <div class="view-book">
-                                                    <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                        Book</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="mb-2">
-                                                    <h6 class="mb-1">The Raze Night Book </h6>
-                                                    <p class="font-size-13 line-height mb-1">Paige Turner</p>
-                                                    <div class="d-block">
-                                                        <span class="font-size-13 text-warning">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="price d-flex align-items-center">
-                                                    <span class="pr-1 old-price">$150</span>
-                                                    <h6><b>$129</b></h6>
-                                                </div>
-                                                <div class="iq-product-action">
-                                                    <a href="javascript:void();"><i
-                                                            class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                                    <a href="javascript:void();" class="ml-2"><i
-                                                            class="ri-heart-fill text-danger"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative image-overlap-shadow">
-                                                <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                        src="{{ asset('images/trendy-books/06.jpg') }}"
-                                                        alt=""></a>
-                                                <div class="view-book">
-                                                    <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                        Book</a>
-                                                </div>
-                                            </div>
-                                            <div class="col-7">
-                                                <div class="mb-2">
-                                                    <h6 class="mb-1">Find the Wave Book..</h6>
-                                                    <p class="font-size-13 line-height mb-1">Barb Ackue</p>
-                                                    <div class="d-block">
-                                                        <span class="font-size-13 text-warning">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="price d-flex align-items-center">
-                                                    <span class="pr-1 old-price">$120</span>
-                                                    <h6><b>$100</b></h6>
-                                                </div>
-                                                <div class="iq-product-action">
-                                                    <a href="javascript:void();"><i
-                                                            class="ri-shopping-cart-2-fill text-primary"></i></a>
-                                                    <a href="javascript:void();" class="ml-2"><i
-                                                            class="ri-heart-fill text-danger"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div
+                        class="iq-card-header d-flex justify-content-between align-items-center position-relative mb-0 trendy-detail">
+                        <div class="iq-header-title">
+                            <h4 class="card-title mb-0">Livros Mais lidos</h4>
+                        </div>
+                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                            <div
-                                class="iq-card-header d-flex justify-content-between align-items-center position-relative">
-                                <div class="iq-header-title">
-                                    <h4 class="card-title mb-0">Favorite Reads</h4>
+                    <div class="iq-card-body trendy-contens">
+                        <ul id="trendy-slider" class="list-inline p-0 mb-0 row">
+                            <li class="col-md-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative image-overlap-shadow">
+                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
+                                                src="{{ asset('images/trendy-books/01.jpg') }}" alt=""></a>
+                                        <div class="view-book">
+                                            <a href="book-page.html" class="btn btn-sm btn-white">View
+                                                Book</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="mb-2">
+                                            <h6 class="mb-1">The Word Books Day..</h6>
+                                            <p class="font-size-13 line-height mb-1">Paul Molive</p>
+                                            <div class="d-block">
+                                                <span class="font-size-13 text-warning">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="price d-flex align-items-center">
+                                            <span class="pr-1 old-price">$99</span>
+                                            <h6><b>$89</b></h6>
+                                        </div>
+                                        <div class="iq-product-action">
+                                            <a href="javascript:void();"><i
+                                                    class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                            <a href="javascript:void();" class="ml-2"><i
+                                                    class="ri-heart-fill text-danger"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="iq-card-header-toolbar d-flex align-items-center">
-                                    <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
+                            </li>
+                            <li class="col-md-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative image-overlap-shadow">
+                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
+                                                src="{{ asset('images/trendy-books/02.jpg') }}" alt=""></a>
+                                        <div class="view-book">
+                                            <a href="book-page.html" class="btn btn-sm btn-white">View
+                                                Book</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="mb-2">
+                                            <h6 class="mb-1">The catcher in the Rye</h6>
+                                            <p class="font-size-13 line-height mb-1">Anna Sthesia</p>
+                                            <div class="d-block">
+                                                <span class="font-size-13 text-warning">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="price d-flex align-items-center">
+                                            <span class="pr-1 old-price">$89</span>
+                                            <h6><b>$79</b></h6>
+                                        </div>
+                                        <div class="iq-product-action">
+                                            <a href="javascript:void();"><i
+                                                    class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                            <a href="javascript:void();" class="ml-2"><i
+                                                    class="ri-heart-fill text-danger"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="iq-card-body favorites-contens">
-                                <ul id="favorites-slider" class="list-inline p-0 mb-0 row">
-                                    <li class="col-md-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative">
-                                                <a href="javascript:void();">
-                                                    <img src="{{ asset('images/favorite/01.jpg') }}"
-                                                        class="img-fluid rounded w-100" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="col-7">
-                                                <h5 class="mb-2">Every Book is a new Wonderful Travel..</h5>
-                                                <p class="mb-2">Author : Pedro Araez</p>
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                                    <span>Reading</span>
-                                                    <span class="mr-4">78%</span>
-                                                </div>
-                                                <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                    <div class="iq-progress-bar iq-bg-primary">
-                                                        <span class="bg-primary" data-percent="78"></span>
-                                                    </div>
-                                                </div>
-                                                <a href="#" class="text-dark">Read Now<i
-                                                        class="ri-arrow-right-s-line"></i></a>
+                            </li>
+                            <li class="col-md-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative image-overlap-shadow">
+                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
+                                                src="{{ asset('images/trendy-books/03.jpg') }}" alt=""></a>
+                                        <div class="view-book">
+                                            <a href="book-page.html" class="btn btn-sm btn-white">View
+                                                Book</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="mb-2">
+                                            <h6 class="mb-1">Little Black Book</h6>
+                                            <p class="font-size-13 line-height mb-1">Monty Carlo</p>
+                                            <div class="d-block">
+                                                <span class="font-size-13 text-warning">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative">
-                                                <a href="javascript:void();">
-                                                    <img src="{{ asset('images/favorite/02.jpg') }}"
-                                                        class="img-fluid rounded w-100" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="col-7">
-                                                <h5 class="mb-2">Casey Christie night book into find...</h5>
-                                                <p class="mb-2">Author : Michael klock</p>
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                                    <span>Reading</span>
-                                                    <span class="mr-4">78%</span>
-                                                </div>
-                                                <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                    <div class="iq-progress-bar iq-bg-danger">
-                                                        <span class="bg-danger" data-percent="78"></span>
-                                                    </div>
-                                                </div>
-                                                <a href="#" class="text-dark">Read Now<i
-                                                        class="ri-arrow-right-s-line"></i></a>
+                                        <div class="price d-flex align-items-center">
+                                            <span class="pr-1 old-price">$100</span>
+                                            <h6><b>$89</b></h6>
+                                        </div>
+                                        <div class="iq-product-action">
+                                            <a href="javascript:void();"><i
+                                                    class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                            <a href="javascript:void();" class="ml-2"><i
+                                                    class="ri-heart-fill text-danger"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative image-overlap-shadow">
+                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
+                                                src="{{ asset('images/trendy-books/04.jpg') }}" alt=""></a>
+                                        <div class="view-book">
+                                            <a href="book-page.html" class="btn btn-sm btn-white">View
+                                                Book</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="mb-2">
+                                            <h6 class="mb-1">Take The Risk Book</h6>
+                                            <p class="font-size-13 line-height mb-1">Smith goal</p>
+                                            <div class="d-block">
+                                                <span class="font-size-13 text-warning">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative">
-                                                <a href="javascript:void();">
-                                                    <img src="{{ asset('images/favorite/03.jpg') }}"
-                                                        class="img-fluid rounded w-100" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="col-7">
-                                                <h5 class="mb-2">The Secret to English Busy People..</h5>
-                                                <p class="mb-2">Author : Daniel Ace</p>
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                                    <span>Reading</span>
-                                                    <span class="mr-4">78%</span>
-                                                </div>
-                                                <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                    <div class="iq-progress-bar iq-bg-info">
-                                                        <span class="bg-info" data-percent="78"></span>
-                                                    </div>
-                                                </div>
-                                                <a href="#" class="text-dark">Read Now<i
-                                                        class="ri-arrow-right-s-line"></i></a>
+                                        <div class="price d-flex align-items-center">
+                                            <span class="pr-1 old-price">$120</span>
+                                            <h6><b>$99</b></h6>
+                                        </div>
+                                        <div class="iq-product-action">
+                                            <a href="javascript:void();"><i
+                                                    class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                            <a href="javascript:void();" class="ml-2"><i
+                                                    class="ri-heart-fill text-danger"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative image-overlap-shadow">
+                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
+                                                src="{{ asset('images/trendy-books/05.jpg') }}" alt=""></a>
+                                        <div class="view-book">
+                                            <a href="book-page.html" class="btn btn-sm btn-white">View
+                                                Book</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="mb-2">
+                                            <h6 class="mb-1">The Raze Night Book </h6>
+                                            <p class="font-size-13 line-height mb-1">Paige Turner</p>
+                                            <div class="d-block">
+                                                <span class="font-size-13 text-warning">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-5 p-0 position-relative">
-                                                <a href="javascript:void();">
-                                                    <img src="{{ asset('images/favorite/04.jpg') }}"
-                                                        class="img-fluid rounded w-100" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="col-7">
-                                                <h5 class="mb-2">The adventures of Robins books...</h5>
-                                                <p class="mb-2">Author : Luka Afton</p>
-                                                <div
-                                                    class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                                    <span>Reading</span>
-                                                    <span class="mr-4">78%</span>
-                                                </div>
-                                                <div class="iq-progress-bar-linear d-inline-block w-100">
-                                                    <div class="iq-progress-bar iq-bg-success">
-                                                        <span class="bg-success" data-percent="78"></span>
-                                                    </div>
-                                                </div>
-                                                <a href="#" class="text-dark">Read Now<i
-                                                        class="ri-arrow-right-s-line"></i></a>
+                                        <div class="price d-flex align-items-center">
+                                            <span class="pr-1 old-price">$150</span>
+                                            <h6><b>$129</b></h6>
+                                        </div>
+                                        <div class="iq-product-action">
+                                            <a href="javascript:void();"><i
+                                                    class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                            <a href="javascript:void();" class="ml-2"><i
+                                                    class="ri-heart-fill text-danger"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative image-overlap-shadow">
+                                        <a href="javascript:void();"><img class="img-fluid rounded w-100"
+                                                src="{{ asset('images/trendy-books/06.jpg') }}" alt=""></a>
+                                        <div class="view-book">
+                                            <a href="book-page.html" class="btn btn-sm btn-white">View
+                                                Book</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="mb-2">
+                                            <h6 class="mb-1">Find the Wave Book..</h6>
+                                            <p class="font-size-13 line-height mb-1">Barb Ackue</p>
+                                            <div class="d-block">
+                                                <span class="font-size-13 text-warning">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
                                             </div>
                                         </div>
-                                    </li>
-                                </ul>
-                            </div>
+                                        <div class="price d-flex align-items-center">
+                                            <span class="pr-1 old-price">$120</span>
+                                            <h6><b>$100</b></h6>
+                                        </div>
+                                        <div class="iq-product-action">
+                                            <a href="javascript:void();"><i
+                                                    class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                            <a href="javascript:void();" class="ml-2"><i
+                                                    class="ri-heart-fill text-danger"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                        <div class="iq-header-title">
+                            <h4 class="card-title mb-0">Favorite Reads</h4>
                         </div>
+                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
+                        </div>
+                    </div>
+                    <div class="iq-card-body favorites-contens">
+                        <ul id="favorites-slider" class="list-inline p-0 mb-0 row">
+                            <li class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative">
+                                        <a href="javascript:void();">
+                                            <img src="{{ asset('images/favorite/01.jpg') }}"
+                                                class="img-fluid rounded w-100" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="mb-2">Every Book is a new Wonderful Travel..</h5>
+                                        <p class="mb-2">Author : Pedro Araez</p>
+                                        <div
+                                            class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                            <span>Reading</span>
+                                            <span class="mr-4">78%</span>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar iq-bg-primary">
+                                                <span class="bg-primary" data-percent="78"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="text-dark">Read Now<i
+                                                class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative">
+                                        <a href="javascript:void();">
+                                            <img src="{{ asset('images/favorite/02.jpg') }}"
+                                                class="img-fluid rounded w-100" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="mb-2">Casey Christie night book into find...</h5>
+                                        <p class="mb-2">Author : Michael klock</p>
+                                        <div
+                                            class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                            <span>Reading</span>
+                                            <span class="mr-4">78%</span>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar iq-bg-danger">
+                                                <span class="bg-danger" data-percent="78"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="text-dark">Read Now<i
+                                                class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative">
+                                        <a href="javascript:void();">
+                                            <img src="{{ asset('images/favorite/03.jpg') }}"
+                                                class="img-fluid rounded w-100" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="mb-2">The Secret to English Busy People..</h5>
+                                        <p class="mb-2">Author : Daniel Ace</p>
+                                        <div
+                                            class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                            <span>Reading</span>
+                                            <span class="mr-4">78%</span>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar iq-bg-info">
+                                                <span class="bg-info" data-percent="78"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="text-dark">Read Now<i
+                                                class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative">
+                                        <a href="javascript:void();">
+                                            <img src="{{ asset('images/favorite/04.jpg') }}"
+                                                class="img-fluid rounded w-100" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="mb-2">The adventures of Robins books...</h5>
+                                        <p class="mb-2">Author : Luka Afton</p>
+                                        <div
+                                            class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                            <span>Reading</span>
+                                            <span class="mr-4">78%</span>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar iq-bg-success">
+                                                <span class="bg-success" data-percent="78"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="text-dark">Read Now<i
+                                                class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
 
 
 
 
-        <!-- Wrapper END -->
-        <!-- Footer -->
-        <footer class="iq-footer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
-                            <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6 text-right">
-                        Copyright 2020 <a href="#">QuedaLivros</a> All Rights Reserved.
-                    </div>
+    <!-- Wrapper END -->
+    <!-- Footer -->
+    <footer class="iq-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-right">
+                    Copyright 2020 <a href="#">QuedaLivros</a> All Rights Reserved.
                 </div>
             </div>
-        </footer>
-        <!-- Footer END -->
-        <!-- color-customizer -->
-        <!-- color-customizer END -->
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/popper.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <!-- Appear JavaScript -->
-        <script src="{{ asset('js/jquery.appear.js') }}"></script>
-        <!-- Countdown JavaScript -->
-        <script src="{{ asset('js/countdown.min.js') }}"></script>
-        <!-- Counterup JavaScript -->
-        <script src="{{ asset('js/waypoints.min.js') }}"></script>
-        <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
-        <!-- Wow JavaScript -->
-        <script src="{{ asset('js/wow.min.js') }}"></script>
-        <!-- Apexcharts JavaScript -->
-        <script src="{{ asset('js/apexcharts.js') }}"></script>
-        <!-- Slick JavaScript -->
-        <script src="{{ asset('js/slick.min.js') }}"></script>
-        <!-- Select2 JavaScript -->
-        <script src="{{ asset('js/select2.min.js') }}"></script>
-        <!-- Owl Carousel JavaScript -->
-        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-        <!-- Magnific Popup JavaScript -->
-        <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-        <!-- Smooth Scrollbar JavaScript -->
-        <script src="{{ asset('js/smooth-scrollbar.js') }}"></script>
-        <!-- lottie JavaScript -->
-        <script src="{{ asset('js/lottie.js') }}"></script>
-        <!-- am core JavaScript -->
-        <script src="{{ asset('js/core.js') }}"></script>
-        <!-- am charts JavaScript -->
-        <script src="{{ asset('js/charts.js') }}"></script>
-        <!-- am animated JavaScript -->
-        <script src="{{ asset('js/animated.js') }}"></script>
-        <!-- am kelly JavaScript -->
-        <script src="{{ asset('js/kelly.js') }}"></script>
-        <!-- am maps JavaScript -->
-        <script src="{{ asset('js/maps.js') }}"></script>
-        <!-- am worldLow JavaScript -->
-        <script src="{{ asset('js/worldLow.js') }}"></script>
-        <!-- Raphael-min JavaScript -->
-        <script src="{{ asset('js/raphael-min.js') }}"></script>
-        <!-- Morris JavaScript -->
-        <script src="{{ asset('js/morris.js') }}"></script>
-        <!-- Morris min JavaScript -->
-        <script src="{{ asset('js/morris.min.js') }}"></script>
-        <!-- Flatpicker Js -->
-        <script src="{{ asset('js/flatpickr.js') }}"></script>
-        <!-- Style Customizer -->
-        <script src="{{ asset('js/style-customizer.js') }}"></script>
-        <!-- Chart Custom JavaScript -->
-        <script src="{{ asset('js/chart-custom.js') }}"></script>
-        <!-- Custom JavaScript -->
-        <script src="{{ asset('js/custom.js') }}"></script>
+        </div>
+    </footer>
+    <!-- Footer END -->
+    <!-- color-customizer -->
+    <!-- color-customizer END -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- Appear JavaScript -->
+    <script src="{{ asset('js/jquery.appear.js') }}"></script>
+    <!-- Countdown JavaScript -->
+    <script src="{{ asset('js/countdown.min.js') }}"></script>
+    <!-- Counterup JavaScript -->
+    <script src="{{ asset('js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+    <!-- Wow JavaScript -->
+    <script src="{{ asset('js/wow.min.js') }}"></script>
+    <!-- Apexcharts JavaScript -->
+    <script src="{{ asset('js/apexcharts.js') }}"></script>
+    <!-- Slick JavaScript -->
+    <script src="{{ asset('js/slick.min.js') }}"></script>
+    <!-- Select2 JavaScript -->
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+    <!-- Owl Carousel JavaScript -->
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <!-- Magnific Popup JavaScript -->
+    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <!-- Smooth Scrollbar JavaScript -->
+    <script src="{{ asset('js/smooth-scrollbar.js') }}"></script>
+    <!-- lottie JavaScript -->
+    <script src="{{ asset('js/lottie.js') }}"></script>
+    <!-- am core JavaScript -->
+    <script src="{{ asset('js/core.js') }}"></script>
+    <!-- am charts JavaScript -->
+    <script src="{{ asset('js/charts.js') }}"></script>
+    <!-- am animated JavaScript -->
+    <script src="{{ asset('js/animated.js') }}"></script>
+    <!-- am kelly JavaScript -->
+    <script src="{{ asset('js/kelly.js') }}"></script>
+    <!-- am maps JavaScript -->
+    <script src="{{ asset('js/maps.js') }}"></script>
+    <!-- am worldLow JavaScript -->
+    <script src="{{ asset('js/worldLow.js') }}"></script>
+    <!-- Raphael-min JavaScript -->
+    <script src="{{ asset('js/raphael-min.js') }}"></script>
+    <!-- Morris JavaScript -->
+    <script src="{{ asset('js/morris.js') }}"></script>
+    <!-- Morris min JavaScript -->
+    <script src="{{ asset('js/morris.min.js') }}"></script>
+    <!-- Flatpicker Js -->
+    <script src="{{ asset('js/flatpickr.js') }}"></script>
+    <!-- Style Customizer -->
+    <script src="{{ asset('js/style-customizer.js') }}"></script>
+    <!-- Chart Custom JavaScript -->
+    <script src="{{ asset('js/chart-custom.js') }}"></script>
+    <!-- Custom JavaScript -->
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 
 <!-- Mirrored from templates.iqonic.design/booksto/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Aug 2022 11:31:11 GMT -->
