@@ -23,4 +23,11 @@ class LivroController extends Controller
         $semelhante = DB::table('livros')->where('livroCategoria', $categoria)->get();
         return view('detalhes', ['dado' => $dado, 'semelhante' => $semelhante]);
     }
+    public function lerdetalhes($dado)
+    {
+        $dado = livro::findOrfail($dado);
+        $categoria = $dado->livroCategoria;
+        $semelhante = DB::table('livros')->where('livroCategoria', $categoria)->get();
+        return view('detalhes', ['dado' => $dado, 'semelhante' => $semelhante]);
+    }
 }

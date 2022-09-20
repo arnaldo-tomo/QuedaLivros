@@ -408,7 +408,8 @@
                                                                 src="{{ asset('storage/' . $dado->livroImagen) }}"
                                                                 alt=""></a>
                                                         <div class="view-book">
-                                                            <a href="" class="btn btn-sm btn-white">Ler
+                                                            <a href="{{ route('lerdetalhes', $dado->id) }}"
+                                                                class="btn btn-sm btn-white">Ler
                                                                 Livro</a>
                                                         </div>
                                                     </div>
@@ -436,7 +437,8 @@
                                                         </span>
                                                     @endif
                                                     <div>
-                                                        <a href="#" class="text-dark" tabindex="-1">ler
+                                                        <a href="{{ route('lerdetalhes', $dado->id) }}"
+                                                            class="text-dark" tabindex="-1">ler
                                                             Agora<i class="ri-arrow-right-s-line"></i></a>
 
                                                     </div>
