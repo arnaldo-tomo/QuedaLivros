@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\autor;
 use App\Models\livro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LivroController extends Controller
 {
@@ -18,6 +19,8 @@ class LivroController extends Controller
     public function ler($dado)
     {
         $dado = livro::findOrfail($dado);
-        return view('detalhes', ['dado' => $dado]);
+        $categoria = $dado->livroCategoria;
+        $semelhante = DB::table('livros')->where('livroCategoria', $categoria)->get();
+        return view('detalhes', ['dado' => $dado, 'semelhante' => $semelhante]);
     }
 }

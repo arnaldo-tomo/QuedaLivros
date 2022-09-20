@@ -187,58 +187,69 @@
         <div id="content-page" class="content-page">
             <div class="container-fluid">
                 <div class="row">
+
                     <div class="col-sm-12">
                         <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                             <div class="iq-card-header d-flex justify-content-between align-items-center">
-                                <h4 class="card-title mb-0">Descricao do livro</h4>
+                                <h4 class="card-title mb-0">Descricao do livro </h4>
+                                <div class="card-body">
+                                    <img src="">
+                                </div>
                             </div>
                             <div class="iq-card-body pb-0">
                                 <div class="description-contens align-items-top row">
                                     <div class="col-md-6">
                                         <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
                                             <div class="iq-card-body p-0">
+                                                {{-- <div class="card-body">
+                                                    <div class="card-haeder">
+                                                        <img src="{{ asset('storage/' . $dado->livroImagen) }} "
+                                                            alt="">
+                                                    </div>
+                                                </div> --}}
+
                                                 <div class="row align-items-center">
                                                     <div class="col-3">
                                                         <ul id="description-slider-nav"
                                                             class="list-inline p-0 m-0  d-flex align-items-center">
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/01.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid rounded w-100"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/02.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid rounded w-100"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/03.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid rounded w-100"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/04.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid rounded w-100"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/05.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid rounded w-100"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/06.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid rounded w-100"
                                                                         alt="">
                                                                 </a>
@@ -250,42 +261,42 @@
                                                             class="list-inline p-0 m-0  d-flex align-items-center">
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/01.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid w-100 rounded"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/02.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid w-100 rounded"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/03.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid w-100 rounded"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/04.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid w-100 rounded"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/05.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid w-100 rounded"
                                                                         alt="">
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a href="javascript:void(0);">
-                                                                    <img src="{{ asset('images/book-dec/06.jpg') }}"
+                                                                    <img src="{{ asset('storage/' . $dado->livroImagen) }} "
                                                                         class="img-fluid w-100 rounded"
                                                                         alt="">
                                                                 </a>
@@ -300,10 +311,17 @@
                                         <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
                                             <div class="iq-card-body p-0">
                                                 <h3 class="mb-3">{{ $dado->livroNome }}</h3>
-                                                <div class="price d-flex align-items-center font-weight-500 mb-2">
-                                                    <span class="font-size-24 text-dark">{{ $dado->tipo }}</span>
+                                                <div class="text-primary mb-4">
+                                                    <b>Autor</b> <span class="text-body">{{ $dado->livroAutor }},
+                                                        <b class="primary">Categoria:</b>{{ $dado->livroCategoria }}
+                                                        <div class="text-primary mb-4">
+                                                        </div>
+                                                    </span>
                                                 </div>
-                                                <div class="mb-3 d-block">
+                                                {{-- <div class="price d-flex align-items-center font-weight-500 mb-2">
+                                                    <span class="font-size-24 text-dark">{{ $dado->tipo }}</span>
+                                                </div> --}}
+                                                {{-- <div class="mb-3 d-block">
                                                     <span class="font-size-20 text-warning">
                                                         <i class="fa fa-star mr-1"></i>
                                                         <i class="fa fa-star mr-1"></i>
@@ -311,12 +329,15 @@
                                                         <i class="fa fa-star mr-1"></i>
                                                         <i class="fa fa-star"></i>
                                                     </span>
-                                                </div>
+                                                </div> --}}
                                                 <span
                                                     class="text-dark mb-4 pb-4 iq-border-bottom d-block">{{ $dado->livroDescricao }}</span>
-                                                <div class="text-primary mb-4">Author: <span
-                                                        class="text-body">{{ $dado->livroAutor }}</span></div>
+                                                <div class="text-primary mb-4">
+                                                    Publicado em: <span
+                                                        class="text-body">{{ $dado->created_at }}</span>
+                                                </div>
                                                 <div class="mb-4 d-flex align-items-center">
+
                                                     <a href="#" class="btn btn-primary view-more mr-2">Ler
                                                         Depois</a>
                                                     <a href="book-pdf.html" class="btn btn-primary view-more mr-2">Ler
@@ -363,123 +384,54 @@
                         </div>
                     </div>
                     <div class="col-lg-12">
+
+
                         <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                             <div
                                 class="iq-card-header d-flex justify-content-between align-items-center position-relative">
                                 <div class="iq-header-title">
-                                    <h4 class="card-title mb-0">Similar Books</h4>
+                                    <h4 class="card-title mb-0">Livros Semelhantes</h4>
                                 </div>
                                 <div class="iq-card-header-toolbar d-flex align-items-center">
-                                    <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
+                                    <a href="category.html" class="btn btn-sm btn-primary view-more">Ver Mas</a>
                                 </div>
                             </div>
                             <div class="iq-card-body single-similar-contens">
                                 <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
-                                    <li class="col-md-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-5">
-                                                <div class="position-relative image-overlap-shadow">
-                                                    <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                            src="{{ asset('images/similar-books/01.jpg') }}"
-                                                            alt=""></a>
-                                                    <div class="view-book">
-                                                        <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                            Book</a>
+                                    @foreach ($semelhante as $dado)
+                                        <li class="col-md-3">
+                                            <div class="row align-items-center">
+                                                <div class="col-5">
+                                                    <div class="position-relative image-overlap-shadow">
+                                                        <a href="javascript:void();">
+                                                            <img class="img-fluid rounded w-100"
+                                                                src="{{ asset('storage/' . $dado->livroImagen) }}"
+                                                                alt=""></a>
+                                                        <div class="view-book">
+                                                            <a href="" class="btn btn-sm btn-white">Ler
+                                                                Livro</a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-7 pl-0">
-                                                <h6 class="mb-2">The Book of treasure Island find...</h6>
-                                                <p class="text-body">Author : Tara Zona</p>
-                                                <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                        class="ri-arrow-right-s-line"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-5">
-                                                <div class="position-relative image-overlap-shadow">
-                                                    <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                            src="{{ asset('images/similar-books/02.jpg') }}"
-                                                            alt=""></a>
-                                                    <div class="view-book">
-                                                        <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                            Book</a>
+                                                <div class="col-7 pl-0">
+                                                    <h6 class="mb-2">{{ $dado->livroNome }}</h6>
+                                                    <p class="font-size-13 line-height mb-1">
+                                                        Autor:{{ $dado->livroAutor }} </p>
+                                                    <div class="d-block">
+                                                        <span class="font-size-13 text-warning">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </span>
                                                     </div>
+                                                    <a href="#" class="text-dark" tabindex="-1">ler Agora<i
+                                                            class="ri-arrow-right-s-line"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="col-7 pl-0">
-                                                <h6 class="mb-2">Set For Lifr Being Scott Trench..</h6>
-                                                <p class="text-body">Author : Anna Rexia</p>
-                                                <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                        class="ri-arrow-right-s-line"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-5">
-                                                <div class="position-relative image-overlap-shadow">
-                                                    <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                            src="{{ asset('images/similar-books/03.jpg') }}"
-                                                            alt=""></a>
-                                                    <div class="view-book">
-                                                        <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                            Book</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-7 pl-0">
-                                                <h6 class="mb-2">A Birth and Evolutions of the Soul...</h6>
-                                                <p class="text-body">Author : Bill Emia</p>
-                                                <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                        class="ri-arrow-right-s-line"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-5">
-                                                <div class="position-relative image-overlap-shadow">
-                                                    <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                            src="{{ asset('images/similar-books/04.jpg') }}"
-                                                            alt=""></a>
-                                                    <div class="view-book">
-                                                        <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                            Book</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-7 pl-0">
-                                                <h6 class="mb-2">The Nature of world Beautiful Places.</h6>
-                                                <p class="text-body">Author : Hal Appeno</p>
-                                                <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                        class="ri-arrow-right-s-line"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-md-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-5">
-                                                <div class="position-relative image-overlap-shadow">
-                                                    <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                            src="{{ asset('images/similar-books/05.jpg') }}"
-                                                            alt=""></a>
-                                                    <div class="view-book">
-                                                        <a href="book-page.html" class="btn btn-sm btn-white">View
-                                                            Book</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-7 pl-0">
-                                                <h6 class="mb-2">The mackup magazine find books..</h6>
-                                                <p class="text-body">Author : Zack Lee</p>
-                                                <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                        class="ri-arrow-right-s-line"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -489,7 +441,7 @@
                             <div
                                 class="iq-card-header d-flex justify-content-between align-items-center position-relative mb-0 trendy-detail">
                                 <div class="iq-header-title">
-                                    <h4 class="card-title mb-0">Trendy Books</h4>
+                                    <h4 class="card-title mb-0">Livros Mais lidos</h4>
                                 </div>
                                 <div class="iq-card-header-toolbar d-flex align-items-center">
                                     <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>

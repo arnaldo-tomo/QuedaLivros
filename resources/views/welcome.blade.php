@@ -295,6 +295,9 @@
                                                                     </span>
 
                                                                 </p>
+                                                                <p class="font-size-13 line-height mb-1">
+                                                                    {{ $dado->created_at }}
+                                                                </p>
                                                                 <div class="d-block line-height">
                                                                     <span class="font-size-11 text-warning">
                                                                         <i class="fa fa-star"></i>
