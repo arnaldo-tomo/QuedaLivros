@@ -102,77 +102,89 @@
                                 </form>
                             </li>
                             <li class="line-height pt-3">
-                                <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                                    <img src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
-                                    <div class="caption">
-                                        <h6 class="mb-1 line-height">Jordao Veloso</h6>
-                                        <p class="mb-0 text-primary">Conta Primium</p>
-                                    </div>
-                                </a>
-                                <div class="iq-sub-dropdown iq-user-dropdown">
-                                    <div class="iq-card shadow-none m-0">
-                                        <div class="iq-card-body p-0 ">
-                                            <div class="bg-primary p-3">
-                                                <h5 class="mb-0 text-white line-height">{{ session('usuario') }}
-                                                </h5>
-                                                <span class="text-white font-size-12">Desponivel</span>
-                                            </div>
-                                            <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
-                                                <div class="media align-items-center">
-                                                    <div class="rounded iq-card-icon iq-bg-primary">
-                                                        <i class="ri-file-user-line"></i>
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        <h6 class="mb-0 ">Meu Perfil</h6>
-                                                        <p class="mb-0 font-size-12">Ver detalhes do perfil pessoal.
-                                                        </p>
-                                                    </div>
+                                @auth
+                                    <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
+                                        <img src="images/user/1.jpg" class="img-fluid rounded-circle mr-3" alt="user">
+                                        <div class="caption">
+                                            <h6 class="mb-1 line-height">{{ Auth::user()->name }}</h6>
+                                            <p class="mb-0 text-primary">Conta Primium</p>
+                                        </div>
+                                    </a>
+
+                                    <div class="iq-sub-dropdown iq-user-dropdown">
+                                        <div class="iq-card shadow-none m-0">
+                                            <div class="iq-card-body p-0 ">
+                                                <div class="bg-primary p-3">
+                                                    <h5 class="mb-0 text-white line-height">
+                                                    </h5>
+                                                    <span class="text-white font-size-12">{{ Auth::user()->email }}</span>
                                                 </div>
-                                            </a>
-                                            <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
-                                                <div class="media align-items-center">
-                                                    <div class="rounded iq-card-icon iq-bg-primary">
-                                                        <i class="ri-profile-line"></i>
+                                                <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
+                                                    <div class="media align-items-center">
+                                                        <div class="rounded iq-card-icon iq-bg-primary">
+                                                            <i class="ri-file-user-line"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0 ">Meu Perfil</h6>
+                                                            <p class="mb-0 font-size-12">Ver detalhes do perfil pessoal.
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div class="media-body ml-3">
-                                                        <h6 class="mb-0 ">Editar perfil</h6>
-                                                        <p class="mb-0 font-size-12">Modifique seus dados pessoais.</p>
+                                                </a>
+                                                <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
+                                                    <div class="media align-items-center">
+                                                        <div class="rounded iq-card-icon iq-bg-primary">
+                                                            <i class="ri-profile-line"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0 ">Editar perfil</h6>
+                                                            <p class="mb-0 font-size-12">Modifique seus dados pessoais.</p>
+                                                        </div>
                                                     </div>
+                                                </a>
+                                                <a href="account-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                                                    <div class="media align-items-center">
+                                                        <div class="rounded iq-card-icon iq-bg-primary">
+                                                            <i class="ri-account-box-line"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0 ">Configurações da conta</h6>
+                                                            <p class="mb-0 font-size-12">Gerencie os parâmetros da sua
+                                                                conta.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
+                                                    <div class="media align-items-center">
+                                                        <div class="rounded iq-card-icon iq-bg-primary">
+                                                            <i class="ri-lock-line"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3">
+                                                            <h6 class="mb-0 ">Configurações de privacidade</h6>
+                                                            <p class="mb-0 font-size-12">Controle seus parâmetros de
+                                                                privacidade.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="d-inline-block w-100 text-center p-3">
+                                                    <a class="bg-primary iq-sign-btn" href="{{ route('logout') }}"
+                                                        role="button">Sair<i class="ri-login-box-line ml-2"></i></a>
                                                 </div>
-                                            </a>
-                                            <a href="account-setting.html" class="iq-sub-card iq-bg-primary-hover">
-                                                <div class="media align-items-center">
-                                                    <div class="rounded iq-card-icon iq-bg-primary">
-                                                        <i class="ri-account-box-line"></i>
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        <h6 class="mb-0 ">Configurações da conta</h6>
-                                                        <p class="mb-0 font-size-12">Gerencie os parâmetros da sua
-                                                            conta.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
-                                                <div class="media align-items-center">
-                                                    <div class="rounded iq-card-icon iq-bg-primary">
-                                                        <i class="ri-lock-line"></i>
-                                                    </div>
-                                                    <div class="media-body ml-3">
-                                                        <h6 class="mb-0 ">Configurações de privacidade</h6>
-                                                        <p class="mb-0 font-size-12">Controle seus parâmetros de
-                                                            privacidade.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <div class="d-inline-block w-100 text-center p-3">
-                                                <a class="bg-primary iq-sign-btn" href="{{ Route('logout') }}"
-                                                    role="button">Sair<i class="ri-login-box-line ml-2"></i></a>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endauth
+
+                                @guest
+                                    <a href="{{ route('login') }}">
+                                        <div class="caption">
+                                            <h6 class="mb-1 line-height">Iniciar sessao</h6>
+                                        </div>
+                                    </a>
+                                @endguest
+
                             </li>
                         </ul>
                     </div>

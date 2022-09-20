@@ -292,8 +292,8 @@
                 <nav class="iq-sidebar-menu">
                     <ul id="iq-sidebar-toggle" class="iq-menu">
                         <li class="active active-menu">
-                            <a href="#admin" class="iq-waves-effect" data-toggle="collapse" aria-expanded="true"><span
-                                    class="ripple rippleEffect"></span><i
+                            <a href="#admin" class="iq-waves-effect" data-toggle="collapse"
+                                aria-expanded="true"><span class="ripple rippleEffect"></span><i
                                     class="las la-home iq-arrow-left"></i><span>Admin</span><i
                                     class="ri-arrow-right-s-line iq-arrow-right"></i></a>
 
@@ -442,7 +442,7 @@
                                                 </div>
                                             </a>
                                             <div class="d-inline-block w-100 text-center p-3">
-                                                <a class="bg-primary iq-sign-btn" href="{{ Route('logout') }}"
+                                                <a class="bg-primary iq-sign-btn" href="{{ Route('sair') }}"
                                                     role="button">Sair<i class="ri-login-box-line ml-2"></i></a>
                                             </div>
                                         </div>

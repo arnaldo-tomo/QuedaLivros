@@ -164,11 +164,27 @@ class AdminController extends Controller
 
 
 
-    public function logout()
+    public function sair()
     {
         Session::flush();
         Session()->flush();
-        return redirect('admin')->with('status', 'terminado com sucessos');
+
+        return view('admin.index');
+    }
+
+
+
+    public function terminar()
+    {
+        $autor = autor::OrderBy('created_at', 'desc')->get();
+        $livro = livro::OrderBy('created_at', 'desc')->get();
+        // return view('welcome', ['autor' => $autor, 'livro' => $livro]);
+        Session::flush();
+        Session()->flush();
+        return view(
+            'welcome',
+            ['autor' => $autor, 'livro' => $livro]
+        );
     }
 
     public function save()
