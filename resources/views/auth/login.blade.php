@@ -116,13 +116,13 @@
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <img class="round" src="{{ asset('images/slides/promo-a.png') }}"
-                                                    srcset="{{ asset('images/slides/promo-a2x.png') }}"
+                                                <img class="round" src="{{ asset('images/slides/promo-b.png') }}"
+                                                    srcset="{{ asset('images/slides/promo-b2x.png') }}"
                                                     alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
-                                                <p>You can start to create your products easily with its user-friendly
+                                                <h4>QuedaLivros</h4>
+                                                <p>Y11ou can start to create your products easily with its user-friendly
                                                     design & most completed responsive layout.</p>
                                             </div>
                                         </div>
@@ -130,12 +130,12 @@
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <img class="round" src="{{ asset('images/slides/promo-b.png') }}"
-                                                    srcset="{{ asset('images/slides/promo-b2x.png 2x') }}"
+                                                <img class="round" src="{{ asset('images/slides/promo-a.png') }}"
+                                                    srcset="{{ asset('images/slides/promo-a2x.png 2x') }}"
                                                     alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>QuedaLivros</h4>
                                                 <p>You can start to create your products easily with its user-friendly
                                                     design & most completed responsive layout.</p>
                                             </div>
@@ -149,7 +149,7 @@
                                                     alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>QuedaLivros</h4>
                                                 <p>You can start to create your products easily with its user-friendly
                                                     design & most completed responsive layout.</p>
                                             </div>
