@@ -50,7 +50,13 @@
                                                 redefinir sua senha.</p>
                                         </div>
                                     </div>
-                                </div><!-- .nk-block-head -->
+                                </div>
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
+                                <!-- .nk-block-head -->
                                 @if ($errors->any())
                                     @foreach ($errors->all() as $error)
                                         <div class="alert alert-danger role">
@@ -102,7 +108,7 @@
                                                     srcset="{{ asset('images/slides/promo-a2x.png') }}" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>QuedaLivros</h4>
                                                 <p>You can start to create your products easily with its user-friendly
                                                     design & most completed responsive layout.</p>
                                             </div>
@@ -116,7 +122,7 @@
                                                     alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>QuedaLivros</h4>
                                                 <p>You can start to create your products easily with its user-friendly
                                                     design & most completed responsive layout.</p>
                                             </div>
@@ -130,7 +136,7 @@
                                                     alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>QuedaLivros</h4>
                                                 <p>You can start to create your products easily with its user-friendly
                                                     design & most completed responsive layout.</p>
                                             </div>

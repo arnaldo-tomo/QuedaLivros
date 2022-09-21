@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LivroController;
+use App\Models\livro;
 use Illuminate\Support\Facades\Route;
 
 //ADMIN ROUTER::
@@ -39,10 +40,17 @@ Route::get('/', [LivroController::class, 'home'])->name('home');
 Route::get('dashboard/', [LivroController::class, 'home'])->name('home');
 Route::get('ler/{dado}', [LivroController::class, 'ler'])->name('ler');
 Route::get('lerdetalhes/{dado}', [LivroController::class, 'lerdetalhes'])->name('lerdetalhes');
+Route::get('categoria', [LivroController::class, 'categorias'])->name('categoria');
 
-Route::get('/livros', function () {
+
+Route::get('Perfil', [LivroController::class, 'verperfil'])->name('verperfil');
+Route::get('Configurar', [LivroController::class, 'Configurar'])->name('Configurar');
+Route::get('EditarPerfil', [LivroController::class, 'EditarPerfil'])->name('EditarPerfil');
+Route::get('Privacidade', [LivroController::class, 'Privacidade'])->name('Privacidade');
+Route::get('livros', function () {
     return view('welcome');
 })->middleware(['auth'])->name('dashboard');
+
 
 
 require __DIR__ . '/auth.php';

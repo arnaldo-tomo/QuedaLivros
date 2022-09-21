@@ -229,6 +229,14 @@ loading
     z-index: 999999;
 }
 
+.menu {
+    color: black;
+}
+
+.menu:hover {
+    color: black;
+}
+
 #loading-center {
     width: 100%;
     height: 100%;

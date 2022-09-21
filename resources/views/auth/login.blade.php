@@ -48,6 +48,10 @@
                                         </div>
                                     </div>
                                 </div><!-- .nk-block-head -->
+                                @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
+                                @endif
                                 @if ($errors->any())
                                     @foreach ($errors->all() as $error)
                                         <div class="alert alert-danger role">
