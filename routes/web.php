@@ -42,6 +42,7 @@ Route::get('ler/{dado}', [LivroController::class, 'ler'])->name('ler');
 Route::get('lerdetalhes/{dado}', [LivroController::class, 'lerdetalhes'])->name('lerdetalhes');
 Route::get('categoria', [LivroController::class, 'categorias'])->name('categoria');
 
+Route::get('eliminarLivro/{id}', [AdminController::class, 'eliminarLivro'])->name('eliminarLivro');
 
 Route::get('Perfil', [LivroController::class, 'verperfil'])->name('verperfil');
 Route::get('Configurar', [LivroController::class, 'Configurar'])->name('Configurar');

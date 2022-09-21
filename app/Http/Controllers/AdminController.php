@@ -197,4 +197,20 @@ class AdminController extends Controller
         $usuario->save();
         return "Craido Com Exito! ";
     }
+
+    //Inicio do metodo que elimina o livro
+    public function eliminarLivro($id)
+    {
+        $livro = livro::find($id);
+        $localImagem = "perfil/livrosImgane/" . $livro->autorPerfil;
+        $localPdf = "perfil/livrosPdf/" . $livro->autorPerfil;
+
+        if (File::exists($localImagem) && File::exists($localPdf)) {
+            File::delete($localImagem);
+            File::delete($localPdf);
+        }
+        $livro->delete();
+        
+        return redirect()->route('livro')->with('Eliminado','O livro foi eliminado com sucesso.');
+    }
 }
