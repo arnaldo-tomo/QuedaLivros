@@ -256,7 +256,7 @@
                                                         <a class="bg-primary" data-toggle="tooltip"
                                                             data-placement="top" title=""
                                                             data-original-title="Edit"
-                                                            href="admin-add-category.html"><i
+                                                            href="{{route('editarAutor',['id' =>$dado->id])}}"><i
                                                                 class="ri-pencil-line"></i></a>
                                                         <a class="bg-primary" data-toggle="tooltip"
                                                             data-placement="top" title=""

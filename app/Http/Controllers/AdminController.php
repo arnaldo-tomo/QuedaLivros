@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\admin;
+use App\Models\User;
 use App\Models\autor;
 use App\Models\livro;
 // use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -119,7 +121,10 @@ class AdminController extends Controller
 
     public function usuariover()
     {
-        return view('admin.usuariover');
+
+        $usuarios=User::all();
+
+        return view('admin.usuariover', compact('usuarios'));
     }
 
     public function crirautor()
@@ -197,4 +202,56 @@ class AdminController extends Controller
         $usuario->save();
         return "Craido Com Exito! ";
     }
+
+    //Inicio do metodo que elimina o livro
+    public function eliminarLivro($id)
+    {
+        $livro = livro::find($id);
+        $localImagem = "perfil/livrosImgane/" . $livro->autorPerfil;
+        $localPdf = "perfil/livrosPdf/" . $livro->autorPerfil;
+
+        if (File::exists($localImagem) && File::exists($localPdf)) {
+            File::delete($localImagem);
+            File::delete($localPdf);
+        }
+        $livro->delete();
+        
+        return redirect()->route('livro')->with('Eliminado','O livro foi eliminado com sucesso.');
+    }
+
+    //Inicio do metodo que retorna a pagina de edicao dos autores 
+    public function editarAutor($id)
+    {
+        $autor=autor::find($id);
+        return view('admin.editarAutor',['autor'=>$autor]);
+    }
+
+    //Inicio do metodo para actualizar o autor
+    public function actualizarAutor(Request $request,$id)
+    {
+        $autor=autor::find($id);
+
+        $autor->autorNome=$request->autorNome;
+        $autor->autorEmail=$request->autorEmail;
+        $autor->autorDescricao=$request->autorDescricao;
+
+        if($request->hasFile('autorPerfil'))
+        {
+            $filenameWithExt = $request->file('autorPerfil')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('autorPerfil')->getClientOriginalExtension();
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $path = $request->file('autorPerfil')->storeAs('perfil/autores', $fileNameToStore);
+        }
+        else
+        {
+            return redirect()->route('autor')->with('Error','Falha ao actualizar, imagem nao encontrada');
+        }
+
+        $autor->update($request->all());
+
+        return redirect()->route('autor')->with('Actualizado','O autor foi actualizado com sucesso');
+    }
+
+    //Inicio do metodo para mostrar todos os usuarios do sistema
 }
