@@ -41,6 +41,7 @@ Route::get('dashboard/', [LivroController::class, 'home'])->name('home');
 Route::get('ler/{dado}', [LivroController::class, 'ler'])->name('ler');
 Route::get('lerdetalhes/{dado}', [LivroController::class, 'lerdetalhes'])->name('lerdetalhes');
 Route::get('categoria', [LivroController::class, 'categorias'])->name('categoria');
+Route::get('favoritar/{id}', [LivroController::class, 'favoritar'])->name('favoritar');
 
 
 Route::get('Perfil', [LivroController::class, 'verperfil'])->name('verperfil');

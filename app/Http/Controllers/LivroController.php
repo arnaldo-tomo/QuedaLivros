@@ -47,6 +47,14 @@ class LivroController extends Controller
         );
     }
 
+    public function favoritar($id)
+    {
+        $livro = livro::find($id);
+        $livro->favorito = true;
+        $livro->save();
+        return redirect()->back();
+    }
+
     public function verperfil()
     {
         return view('MeuPerfil');

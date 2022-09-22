@@ -332,8 +332,11 @@
                                                             <div class="iq-product-action">
                                                                 <a href="javascript:void();"><i
                                                                         class="ri-bookmark-fill text-primary"></i></a>
-                                                                <a href="javascript:void();" class="ml-2"><i
+
+                                                                <a href="{{ route('favoritar', $dado->id) }}"
+                                                                    class="ml-2"><i
                                                                         class="ri-heart-line text-primary"></i></a>
+
                                                             </div>
                                                         </div>
                                                     </div>

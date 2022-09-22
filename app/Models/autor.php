@@ -12,6 +12,6 @@ class autor extends Model
 
     public function livro()
     {
-        return $this->hasMany(livro::class, 'autor_id');
+        return $this->hasManyThrough(livro::class, 'livro');
     }
 }
