@@ -15,14 +15,15 @@ class CreateLivrosTable extends Migration
     {
         Schema::create('livros', function (Blueprint $table) {
             $table->id();
-            $table->string('livroNome')->constrained();
+            $table->string('livroNome');
             $table->string('livroImagen');
             $table->string('livroCategoria');
             $table->string('livroAutor');
             $table->string('livroPdf');
             $table->string('livroEdicao')->nullable();
-            $table->string('livroDescricao');
+            $table->string('livroDescricao', '1000');
             $table->String('tipo');
+            $table->boolean('favorito')->nullable();
             $table->timestamps();
         });
     }
