@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\admin;
+use App\Models\User;
 use App\Models\autor;
 use App\Models\livro;
 // use Facade\FlareClient\Stacktrace\File;
@@ -120,7 +121,10 @@ class AdminController extends Controller
 
     public function usuariover()
     {
-        return view('admin.usuariover');
+
+        $usuarios=User::all();
+
+        return view('admin.usuariover', compact('usuarios'));
     }
 
     public function crirautor()
@@ -222,6 +226,7 @@ class AdminController extends Controller
         return view('admin.editarAutor',['autor'=>$autor]);
     }
 
+    //Inicio do metodo para actualizar o autor
     public function actualizarAutor(Request $request,$id)
     {
         $autor=autor::find($id);
@@ -247,4 +252,6 @@ class AdminController extends Controller
 
         return redirect()->route('autor')->with('Actualizado','O autor foi actualizado com sucesso');
     }
+
+    //Inicio do metodo para mostrar todos os usuarios do sistema
 }
