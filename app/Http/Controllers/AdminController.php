@@ -121,9 +121,7 @@ class AdminController extends Controller
 
     public function usuariover()
     {
-
         $usuarios=User::all();
-
         return view('admin.usuariover', compact('usuarios'));
     }
 
@@ -133,7 +131,6 @@ class AdminController extends Controller
     }
     public function salvarautor(Request $request)
     {
-
         // validadacao de campos
         $request->validate([
             'autorNome' => 'required',
@@ -147,9 +144,12 @@ class AdminController extends Controller
         $autor->autorNome = $request->autorNome;
         $autor->autorEmail = $request->autorEmail;
         $autor->autorDescricao = $request->autorDescricao;
+
+
         $autor->autorPerfil = $request->autorPerfil->store('perfil/autores');
 
         $autor->save();
+
         return redirect()->route('autor')->with('status', 'Autor Registado');
     }
 
@@ -253,5 +253,13 @@ class AdminController extends Controller
         return redirect()->route('autor')->with('Actualizado','O autor foi actualizado com sucesso');
     }
 
-    //Inicio do metodo para mostrar todos os usuarios do sistema
+    //Inicio do metodo para eliminar usuario 
+    public function eliminarUsuario($id) 
+    {
+        $usuarios=User::find($id);
+        $usuarios->delete();
+
+        return redirect()->back()->with('Eliminado','O usuario foi eliminado com sucesso');
+    }
+
 }

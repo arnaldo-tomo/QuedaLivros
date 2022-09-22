@@ -35,11 +35,14 @@ Route::get('save', [AdminController::class, 'save'])->name('save');
 Route::get('logout', [AdminController::class, 'terminar'])->name('terminar');
 Route::get('sair', [AdminController::class, 'sair'])->name('sair');
 
-
 Route::get('/', [LivroController::class, 'home'])->name('home');
+
 Route::get('dashboard/', [LivroController::class, 'home'])->name('home');
+
 Route::get('ler/{dado}', [LivroController::class, 'ler'])->name('ler');
+
 Route::get('lerdetalhes/{dado}', [LivroController::class, 'lerdetalhes'])->name('lerdetalhes');
+
 Route::get('categoria', [LivroController::class, 'categorias'])->name('categoria');
 
 Route::get('eliminarLivro/{id}', [AdminController::class, 'eliminarLivro'])->name('eliminarLivro');
@@ -48,6 +51,8 @@ Route::get('editarAutor/{id}', [AdminController::class, 'editarAutor'])->name('e
 
 Route::put('actualizarAutor/{id}', [AdminController::class, 'actualizarAutor'])->name('actualizarAutor');
 
+Route::get('eliminarUsuario/{id}', [AdminController::class, 'eliminarUsuario'])->name('eliminarUsuario');
+
 Route::get('Perfil', [LivroController::class, 'verperfil'])->name('verperfil');
 Route::get('Configurar', [LivroController::class, 'Configurar'])->name('Configurar');
 Route::get('EditarPerfil', [LivroController::class, 'EditarPerfil'])->name('EditarPerfil');
@@ -55,7 +60,5 @@ Route::get('Privacidade', [LivroController::class, 'Privacidade'])->name('Privac
 Route::get('livros', function () {
     return view('welcome');
 })->middleware(['auth'])->name('dashboard');
-
-
 
 require __DIR__ . '/auth.php';
