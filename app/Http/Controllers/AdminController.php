@@ -7,9 +7,10 @@ use App\Models\autor;
 use App\Models\livro;
 // use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -212,5 +213,38 @@ class AdminController extends Controller
         $livro->delete();
         
         return redirect()->route('livro')->with('Eliminado','O livro foi eliminado com sucesso.');
+    }
+
+    //Inicio do metodo que retorna a pagina de edicao dos autores 
+    public function editarAutor($id)
+    {
+        $autor=autor::find($id);
+        return view('admin.editarAutor',['autor'=>$autor]);
+    }
+
+    public function actualizarAutor(Request $request,$id)
+    {
+        $autor=autor::find($id);
+
+        $autor->autorNome=$request->autorNome;
+        $autor->autorEmail=$request->autorEmail;
+        $autor->autorDescricao=$request->autorDescricao;
+
+        if($request->hasFile('autorPerfil'))
+        {
+            $filenameWithExt = $request->file('autorPerfil')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('autorPerfil')->getClientOriginalExtension();
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            $path = $request->file('autorPerfil')->storeAs('perfil/autores', $fileNameToStore);
+        }
+        else
+        {
+            return redirect()->route('autor')->with('Error','Falha ao actualizar, imagem nao encontrada');
+        }
+
+        $autor->update($request->all());
+
+        return redirect()->route('autor')->with('Actualizado','O autor foi actualizado com sucesso');
     }
 }

@@ -1,4 +1,5 @@
-<title>{{ config('root.TITULO') }} - Autor</title>
+<!-- Page Content  -->
+
 <html lang="en">
 
 <head>
@@ -6,15 +7,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="shortcut icon" href="../images/favicon.ico" />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- Typography CSS -->
-    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="../css/typography.css">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 </head>
 
 
@@ -31,7 +32,7 @@
         <div class="iq-sidebar">
             <div class="iq-sidebar-logo d-flex justify-content-between">
                 <a href="{{ route('AdminDashboard') }}" class="header-logo">
-                    <img src="images/logo.png" class="img-fluid rounded-normal" alt="">
+                    <img src="../images/logo.png" class="img-fluid rounded-normal" alt="">
                     <div class="logo-title">
                         <span class="text-primary text-uppercase">{{ config('root.TITULO') }}</span>
                     </div>
@@ -96,7 +97,7 @@
                         </div>
                         <div class="iq-navbar-logo d-flex justify-content-between">
                             <a href="index.html" class="header-logo">
-                                <img src="images/logo.png" class="img-fluid rounded-normal" alt="">
+                                <img src="../images/logo.png" class="img-fluid rounded-normal" alt="">
                                 <div class="logo-title">
                                     <span class="text-primary text-uppercase">{{ config('root.TITULO') }}</span>
                                 </div>
@@ -134,7 +135,7 @@
 
                             <li class="line-height pt-3">
                                 <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
-                                    <img src="images/user/1.jpg" class="img-fluid rounded-circle mr-3"
+                                    <img src="../images/user/1.jpg" class="img-fluid rounded-circle mr-3"
                                         alt="user">
                                     <div class="caption">
                                         <h6 class="mb-1 line-height">{{ session('usuario') }}</h6>
@@ -212,65 +213,55 @@
         </div>
     </div>
     {{-- Conteudo --}}
+
     <div id="content-page" class="content-page">
         <div class="container-fluid">
             <div class="row">
+
                 <div class="col-sm-12">
                     <div class="iq-card">
                         <div class="iq-card-header d-flex justify-content-between">
                             <div class="iq-header-title">
-                                <h4 class="card-title">Author Lists</h4>
-                            </div>
-                            <div class="iq-card-header-toolbar d-flex align-items-center">
-                                <a href="{{ route('crirautor') }}" class="btn btn-primary">Adicionar novo autor</a>
-                            </div>
+                                @if ($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                        <ul>
+                                            <li>{{ $error }}</li>
+                                        </ul>
+                                    @endforeach
+                                @endif
+                                <h4 class="card-title">Editar Autor</h4>
+                           </div>
                         </div>
                         <div class="iq-card-body">
-                            <div class="table-responsive">
-                                <table class="data-tables table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 5%;">No</th>
-                                            <th style="width: 5%;">Profile</th>
-                                            <th style="width: 20%;">Author Name</th>
-                                            <th style="width: 60%;">Author Description</th>
-                                            <th style="width: 10%;">Action</th>
-                                        </tr>
-                                    </thead>
-                                    @foreach ($autor as $dado)
-                                        <tbody>
-
-                                            <tr>
-                                                <td>{{ $dado->id }}</td>
-                                                <td>
-                                                    <img src="storage/{{ $dado->autorPerfil }}"
-                                                        class="img-fluid avatar-50 rounded" alt="author-profile">
-                                                </td>
-                                                <td>{{ $dado->autorNome }}</td>
-                                                <td>
-                                                    <p class="mb-0">{{ $dado->autorDescricao }}</p>
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <div class="flex align-items-center list-user-action">
-                                                        <a class="bg-primary" data-toggle="tooltip"
-                                                            data-placement="top" title=""
-                                                            data-original-title="Edit"
-                                                            href="{{route('editarAutor',['id' =>$dado->id])}}"><i
-                                                                class="ri-pencil-line"></i></a>
-                                                        <a class="bg-primary" data-toggle="tooltip"
-                                                            data-placement="top" title=""
-                                                            data-original-title="Delete"
-                                                            href="{{ route('deleteautor', $dado->id) }}  "><i
-                                                                class="ri-delete-bin-line"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    @endforeach
-                                </table>
-                            </div>
+                            <form action="{{ route('actualizarAutor',['id'=>$autor->id]) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-group">
+                                    <label>Nome do Autor:</label>
+                                    <input type="text" name="autorNome" value="{{ $autor->autorNome }}"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Perfil do Autor:</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="autorPerfil"
+                                            value="{{ old('autorPerfil') }}" id="autorPerfil">
+                                        <label class="custom-file-label" value="{{ $autor->autorPerfil }}"
+                                            name="autorPerfil" id="autorPerfil" for="customFile">Choose file</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Emial Do Autor:</label>
+                                    <input type="email" name="autorEmail" value="{{ $autor->autorEmail }}"
+                                        class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Descricao do Autor:</label>
+                                    <textarea class="form-control" name="autorDescricao" value="{{ $autor->autorDescricao }}" rows="4"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                                <button type="reset" class="btn btn-danger">Limpar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -280,58 +271,58 @@
 
 
     {{-- Conteudo --}}
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- Appear JavaScript -->
-    <script src="js/jquery.appear.js"></script>
+    <script src="../js/jquery.appear.js"></script>
     <!-- Countdown JavaScript -->
-    <script src="js/countdown.min.js"></script>
+    <script src="../js/countdown.min.js"></script>
     <!-- Counterup JavaScript -->
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
+    <script src="../js/waypoints.min.js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>
     <!-- Wow JavaScript -->
-    <script src="js/wow.min.js"></script>
+    <script src="../js/wow.min.js"></script>
     <!-- Apexcharts JavaScript -->
-    <script src="js/apexcharts.js"></script>
+    <script src="../js/apexcharts.js"></script>
     <!-- Slick JavaScript -->
-    <script src="js/slick.min.js"></script>
+    <script src="../js/slick.min.js"></script>
     <!-- Select2 JavaScript -->
-    <script src="js/select2.min.js"></script>
+    <script src="../js/select2.min.js"></script>
     <!-- Owl Carousel JavaScript -->
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
     <!-- Magnific Popup JavaScript -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="../js/jquery.magnific-popup.min.js"></script>
     <!-- Smooth Scrollbar JavaScript -->
-    <script src="js/smooth-scrollbar.js"></script>
+    <script src="../js/smooth-scrollbar.js"></script>
     <!-- lottie JavaScript -->
-    <script src="js/lottie.js"></script>
+    <script src="../js/lottie.js"></script>
     <!-- am core JavaScript -->
-    <script src="js/core.js"></script>
+    <script src="../js/core.js"></script>
     <!-- am charts JavaScript -->
-    <script src="js/charts.js"></script>
+    <script src="../js/charts.js"></script>
     <!-- am animated JavaScript -->
-    <script src="js/animated.js"></script>
+    <script src="../js/animated.js"></script>
     <!-- am kelly JavaScript -->
-    <script src="js/kelly.js"></script>
+    <script src="../js/kelly.js"></script>
     <!-- am maps JavaScript -->
-    <script src="js/maps.js"></script>
+    <script src="../js/maps.js"></script>
     <!-- am worldLow JavaScript -->
-    <script src="js/worldLow.js"></script>
+    <script src="../js/worldLow.js"></script>
     <!-- Raphael-min JavaScript -->
-    <script src="js/raphael-min.js"></script>
+    <script src="../js/raphael-min.js"></script>
     <!-- Morris JavaScript -->
-    <script src="js/morris.js"></script>
+    <script src="../js/morris.js"></script>
     <!-- Morris min JavaScript -->
-    <script src="js/morris.min.js"></script>
+    <script src="../js/morris.min.js"></script>
     <!-- Flatpicker Js -->
-    <script src="js/flatpickr.js"></script>
+    <script src="../js/flatpickr.js"></script>
     <!-- Style Customizer -->
-    <script src="js/style-customizer.js"></script>
+    <script src="../js/style-customizer.js"></script>
     <!-- Chart Custom JavaScript -->
-    <script src="js/chart-custom.js"></script>
+    <script src="../js/chart-custom.js"></script>
     <!-- Custom JavaScript -->
-    <script src="js/custom.js"></script>
+    <script src="../js/custom.js"></script>
 </body>
 
 <!-- Mirrored from templates.iqonic.design/{{ config('root.TITULO') }}/html/admin-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Aug 2022 11:31:42 GMT -->

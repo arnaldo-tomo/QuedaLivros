@@ -44,6 +44,10 @@ Route::get('categoria', [LivroController::class, 'categorias'])->name('categoria
 
 Route::get('eliminarLivro/{id}', [AdminController::class, 'eliminarLivro'])->name('eliminarLivro');
 
+Route::get('editarAutor/{id}', [AdminController::class, 'editarAutor'])->name('editarAutor');
+
+Route::put('actualizarAutor/{id}', [AdminController::class, 'actualizarAutor'])->name('actualizarAutor');
+
 Route::get('Perfil', [LivroController::class, 'verperfil'])->name('verperfil');
 Route::get('Configurar', [LivroController::class, 'Configurar'])->name('Configurar');
 Route::get('EditarPerfil', [LivroController::class, 'EditarPerfil'])->name('EditarPerfil');
