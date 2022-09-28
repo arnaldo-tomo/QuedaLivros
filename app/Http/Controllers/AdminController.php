@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Models\autor;
 use App\Models\livro;
 // use Facade\FlareClient\Stacktrace\File;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\File;
@@ -15,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Request;
 
 class AdminController extends Controller
 {
@@ -25,14 +25,13 @@ class AdminController extends Controller
     //admin autenticacao
     public function entrar(Request $request)
     {
-
         // validadacao de campos
-        $request->validate([
+        Request::validate([
             'email' => 'required|email',
             'senha' => 'required'
         ]);
         // // verificar se o susuario existe
-        $query_ru = admin::where('email', $request->email)->first();
+        $query_ru = admin::where('email', Request::input('email'))->first();
 
         //    Verificar  se Existe o susuario
         if (isset($query_ru) == 0) {
@@ -40,7 +39,7 @@ class AdminController extends Controller
         }
 
         //    Verificar se a senha corresponde ao que na DB
-        if (!hash::check($request->senha, $query_ru->senha)) {
+        if (!hash::check(Request::input('senha'), $query_ru->senha)) {
             return redirect('admin')->with('status', 'Palavra-passe Incorreta.');
         }
         Session::put('logado', 'sim');
@@ -78,19 +77,39 @@ class AdminController extends Controller
         $autor =  autor::all();
         return view('admin.criarnovolivro', ['autor' => $autor]);
     }
-    public function salvarlivro(Request $request)
+    public function salvarlivro()
     {
         $livro = new livro();
-        $livro->LivroNome =  $request->LivroNome;
-        $livro->livroImagen =  $request->livroImagen->store('livro/imgane');;
-        $livro->livroCategoria = $request->livroCategoria;
-        $livro->livroAutor = $request->livroAutor;
-        $livro->livroPdf = $request->livroPdf->store('livro/pdf');;
-        $livro->livroEdicao = $request->livroEdicao;
-        $livro->livroDescricao = $request->livroDescricao;
-        $livro->tipo = $request->tipo;
+
+        $livro->livroNome =  Request::input('livroNome');
+        $livro->livroCategoria =  Request::input('livroCategoria');
+        $livro->livroAutor =  Request::input('livroAutor');
+        $livro->livroEdicao =  Request::input('livroEdicao');
+        $livro->livroDescricao =  Request::input('livroDescricao');
+        $livro->tipo =  Request::input('tipo');
+
+        if(Request::file('livroImagen')!=null)
+        {
+            //Codigo para mover a imagem para dentro da pasta
+            $filename = Request::file('livroImagen')->getClientOriginalName();
+            $link = "livro/imgane/".$filename;
+            $livro->livroImagen = $link;
+            $foto = Request::file('livroImagen');
+            $foto->move('livro/imgane',$filename);
+        }
+
+        if(Request::file('livroPdf')!=null)
+        {
+            //Codigo para mover a imagem para dentro da pasta
+            $filenamePdf = Request::file('livroPdf')->getClientOriginalName();
+            $link = "livro/pdf/".$filename;
+            $livro->livroPdf = $link;
+            $pdf = Request::file('livroPdf');
+            $pdf->move('livro/pdf',$filenamePdf);
+        }
 
         $livro->save();
+
         return redirect()->route('livro')->with('status', 'criarlivro Registado');
     }
 
@@ -129,10 +148,10 @@ class AdminController extends Controller
     {
         return view('admin.autorFormulario');
     }
-    public function salvarautor(Request $request)
+    public function salvarautor()
     {
         // validadacao de campos
-        $request->validate([
+        Request::validate([
             'autorNome' => 'required',
             'autorEmail' => 'required|email',
             'autorDescricao' => 'required',
@@ -140,13 +159,19 @@ class AdminController extends Controller
             // 'autorPerfil' => 'required|mimes:pdf,doc,docx'
         ]);
 
-        $autor = new autor;
-        $autor->autorNome = $request->autorNome;
-        $autor->autorEmail = $request->autorEmail;
-        $autor->autorDescricao = $request->autorDescricao;
+        $autor = new autor();
+        $autor->autorNome = Request::input('autorNome');
+        $autor->autorEmail = Request::input('autorEmail');
+        $autor->autorDescricao = Request::input('autorDescricao');
 
-
-        $autor->autorPerfil = $request->autorPerfil->store('perfil/autores');
+        if(Request::file('autorPerfil')!=null)
+        {
+            $filename = Request::file('autorPerfil')->getClientOriginalName();
+            $link = "perfil/autores/".$filename;
+            $autor->autorPerfil = $link;
+            $foto = Request::file('autorPerfil');
+            $foto->move('perfil/autores',$filename);
+        }
 
         $autor->save();
 
@@ -156,18 +181,15 @@ class AdminController extends Controller
     public function deleteautor($id)
     {
         $autor = autor::find($id);
-        $local = "perfil/autores/" . $autor->autorPerfil;
+        $local = $autor->autorPerfil;
 
         if (File::exists($local)) {
             File::delete($local);
         }
         $autor->delete();
 
-
-        return redirect()->back();
+        return redirect()->back()->with('Sucess','O autor foi eliminado com sucesso.');
     }
-
-
 
     public function sair()
     {
@@ -176,8 +198,6 @@ class AdminController extends Controller
 
         return view('admin.index');
     }
-
-
 
     public function terminar()
     {
@@ -227,28 +247,24 @@ class AdminController extends Controller
     }
 
     //Inicio do metodo para actualizar o autor
-    public function actualizarAutor(Request $request,$id)
+    public function actualizarAutor($id)
     {
         $autor=autor::find($id);
 
-        $autor->autorNome=$request->autorNome;
-        $autor->autorEmail=$request->autorEmail;
-        $autor->autorDescricao=$request->autorDescricao;
+        $autor->autorNome=Request::input('autorNome');
+        $autor->autorEmail=Request::input('autorEmail');
+        $autor->autorDescricao=Request::input('autorDescricao');
 
-        if($request->hasFile('autorPerfil'))
+        if(Request::file('autorPerfil')!=null)
         {
-            $filenameWithExt = $request->file('autorPerfil')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('autorPerfil')->getClientOriginalExtension();
-            $fileNameToStore= $filename.'_'.time().'.'.$extension;
-            $path = $request->file('autorPerfil')->storeAs('perfil/autores', $fileNameToStore);
-        }
-        else
-        {
-            return redirect()->route('autor')->with('Error','Falha ao actualizar, imagem nao encontrada');
+            $filename = Request::file('autorPerfil')->getClientOriginalName();
+            $link = "perfil/autores/".$filename;
+            $autor->autorPerfil = $link;
+            $foto = Request::file('autorPerfil');
+            $foto->move('perfil/autores',$filename);
         }
 
-        $autor->update($request->all());
+        $autor->update();
 
         return redirect()->route('autor')->with('Actualizado','O autor foi actualizado com sucesso');
     }
