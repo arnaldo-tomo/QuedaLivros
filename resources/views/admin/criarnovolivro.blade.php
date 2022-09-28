@@ -232,7 +232,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Nome do livro:</label>
-                                    <input type="text" name="livroNome" class="form-control">
+                                    <input type="text" name="LivroNome" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Categoria do lirvo:</label>
