@@ -243,7 +243,7 @@
                                             <tr>
                                                 <td>{{ $dado->id }}</td>
                                                 <td>
-                                                    <img src="storage/{{ $dado->autorPerfil }}"
+                                                    <img src="{{ $dado->autorPerfil }}"
                                                         class="img-fluid avatar-50 rounded" alt="author-profile">
                                                 </td>
                                                 <td>{{ $dado->autorNome }}</td>
