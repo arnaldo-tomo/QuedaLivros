@@ -15,14 +15,18 @@ class LivroController extends Controller
     {
         $autor = autor::OrderBy('created_at', 'desc')->get();
         $livro = livro::OrderBy('created_at', 'desc')->get();
+
         return view('welcome', ['autor' => $autor, 'livro' => $livro]);
     }
 
     public function ler($dado)
     {
         $dado = livro::findOrfail($dado);
+        $livro = livro::OrderBy('created_at', 'desc')->get();
+
         $categoria = $dado->livroCategoria;
-        $semelhante = DB::table('livros')->where('livroCategoria', $categoria)->get();
+        $todos = livro::all();
+        $semelhante = DB::table('livros')->where('livroCategoria', $categoria, 'todos', $todos, 'livro', $livro)->get();
         if (!Auth::check()) {
             return view('auth.login')->with('nado', 'Voce nao esta Autenticado');
         }
@@ -31,9 +35,11 @@ class LivroController extends Controller
     }
     public function lerdetalhes($dado)
     {
+        $livro = livro::OrderBy('created_at', 'desc')->get();
         $dado = livro::findOrfail($dado);
         $categoria = $dado->livroCategoria;
-        $semelhante = DB::table('livros')->where('livroCategoria', $categoria)->get();
+        $todos = livro::all();
+        $semelhante = DB::table('livros')->where('livroCategoria', $categoria, 'todos', $todos)->get();
         return view('detalhes', ['dado' => $dado, 'semelhante' => $semelhante]);
     }
 
